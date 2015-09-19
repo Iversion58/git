@@ -10,4 +10,9 @@ git checkout -b dev
 $ git log --graph --pretty=oneline --abbrev-commit	查看历史分支
 $ git checkout -b 线程
 git@github.com:Iversion58/git.git 远程仓库
-
+echo # git >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:Iversion58/git.git
+git push -u origin master
