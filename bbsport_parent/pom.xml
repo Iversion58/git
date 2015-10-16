@@ -9,5 +9,7 @@
     <module>bbsport_service</module>
     <module>bbsport_login</module>
     <module>bbsport_back</module>
+    <module>bbsport_common</module>
+    <module>bbsport_interface</module>
   </modules>
 </project>
