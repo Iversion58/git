@@ -7,5 +7,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>bbsport_service</module>
+    <module>bbsport_login</module>
+    <module>bbsport_back</module>
   </modules>
 </project>
