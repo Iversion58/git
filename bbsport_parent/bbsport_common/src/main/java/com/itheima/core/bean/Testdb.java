@@ -1,6 +1,12 @@
 package com.itheima.core.bean;
 
-public class Testdb {
+import java.io.Serializable;
+
+public class Testdb implements Serializable{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 		private int id;
 		private String name;
 		private int age;
@@ -23,7 +29,9 @@ public class Testdb {
 		public void setAge(int age) {
 			this.age = age;
 		}
-		
-		
+		@Override
+		public String toString() {
+			return "Testdb [id=" + id + ", name=" + name + ", age=" + age + "]";
+		}
 		
 }
