@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.core.dao.TestTbDao">
+<insert id="addTestDb" parameterType="Testdb">
+		insert into test_db
+		(id,name,age)
+		values
+		(#{id},#{name},#{age})
+</insert>
+
+<select id="selectTestDbList" resultType="Testdb">
+		select * from test_db
+</select>
+
+</mapper>
