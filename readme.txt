@@ -16,3 +16,5 @@ git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:Iversion58/git.git
 git push -u origin master
+准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward：
+$ git merge --no-ff -m "merge with no-ff" dev
