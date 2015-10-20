@@ -33,5 +33,7 @@
 		
 				<!-- 暴露的服务接口 -->
 		<dubbo:service interface="com.itheima.core.service.TestTbService" ref="testTbService"/>
+		<dubbo:service interface="com.itheima.core.service.product.BrandService" ref="brandService"/>
+		<dubbo:service interface="com.itheima.core.service.product.UploadService" ref="uploadService"/>
 </beans>
 

@@ -1,4 +1,4 @@
-package com.itheima.core.bean;
+package com.itheima.common.core.bean;
 
 import java.io.Serializable;
 

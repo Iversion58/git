@@ -2,7 +2,7 @@ package com.itheima.core.service;
 
 import java.util.List;
 
-import com.itheima.core.bean.Testdb;
+import com.itheima.common.core.bean.Testdb;
 
 public interface TestTbService {
 

@@ -10,6 +10,11 @@ public class FrameController {
 	@RequestMapping(value = "/frame/product_main.do")
 	public String product_main(){
 		
+		return "frame/product_main";
+	}
+	@RequestMapping(value = "/frame/product_left.do")
+	public String product_left(){
+		
 		return "frame/product_left";
 	}
 	

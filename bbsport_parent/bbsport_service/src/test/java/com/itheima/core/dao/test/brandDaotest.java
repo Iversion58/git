@@ -1,4 +1,5 @@
-package com.itheima.core.service.test;
+package com.itheima.core.dao.test;
+
 
 import java.util.List;
 
@@ -9,18 +10,21 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.itheima.common.core.bean.Testdb;
-import com.itheima.core.service.TestTbService;
+import com.itheima.common.core.bean.product.Brand;
+import com.itheima.core.dao.TestTbDao;
+import com.itheima.core.dao.product.BrandDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:application-context.xml"})
-public class Testdb_test {
+public class brandDaotest {
 
-	@Autowired
-	private TestTbService testTbService;
+			@Autowired
+			private BrandDao brandDao;
+		@Test
+			public void selestByListTest(){
+			List<Brand> list = brandDao.selectListByQuery(null);
+			System.out.println(list);
+		}
 	
-	@Test
-	public void test(){
-		List<Testdb> list = testTbService.selectTestDbList();
-		System.out.println(list);
-	}
+	
 }

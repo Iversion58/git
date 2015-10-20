@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.itheima.core.bean.Testdb;
+import com.itheima.common.core.bean.Testdb;
 import com.itheima.core.dao.TestTbDao;
 
 @Service("testTbService")
