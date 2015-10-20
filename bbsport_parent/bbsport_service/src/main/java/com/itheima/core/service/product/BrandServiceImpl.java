@@ -54,12 +54,12 @@ public class BrandServiceImpl implements BrandService {
 			brandQuery.setPageNo(Pagination.cpn(pageNo));
 				//每页数
 			brandQuery.setPageSize(3);
-
 			// 实例化分页对象
 		Pagination pagination = new Pagination(brandQuery.getPageNo(),
 				brandQuery.getPageSize(),
 				brandDao.selectCount(brandQuery));
-
+				//为了防止超界
+		brandQuery.setPageNo(pagination.getPageNo());
 		pagination.setList(brandDao.selectListByQuery(brandQuery));
 		String url="/brand/list.do";
 		pagination.pageView(url, params.toString());

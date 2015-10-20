@@ -35,5 +35,6 @@
 		<dubbo:service interface="com.itheima.core.service.TestTbService" ref="testTbService"/>
 		<dubbo:service interface="com.itheima.core.service.product.BrandService" ref="brandService"/>
 		<dubbo:service interface="com.itheima.core.service.product.UploadService" ref="uploadService"/>
+		<dubbo:service interface="com.itheima.core.service.product.ProductService" ref="productService"/>
 </beans>
 
