@@ -54,8 +54,10 @@ public class BrandServiceImpl implements BrandService {
 			brandQuery.setPageNo(Pagination.cpn(pageNo));
 				//每页数
 			brandQuery.setPageSize(3);
-		// 实例化分页对象
-		Pagination pagination = new Pagination(brandQuery.getPageNo(), brandQuery.getPageSize(),
+
+			// 实例化分页对象
+		Pagination pagination = new Pagination(brandQuery.getPageNo(),
+				brandQuery.getPageSize(),
 				brandDao.selectCount(brandQuery));
 
 		pagination.setList(brandDao.selectListByQuery(brandQuery));
@@ -69,4 +71,21 @@ public class BrandServiceImpl implements BrandService {
 			brandDao.insertBrand(brand);
 	}
 
+	@Override
+	public void deleteByIds(Integer[] ids) {
+			brandDao.deleteByIds(ids);
+	}
+
+	@Override
+	public Brand selectBrandById(Integer id) {
+		return brandDao.selectBrandById(id);
+	}
+
+	@Override
+	public void updateBrand(Brand brand) {
+				brandDao.updateBrand(brand);
+	}
+
+	
+	
 }

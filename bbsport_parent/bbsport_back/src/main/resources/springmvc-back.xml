@@ -45,6 +45,7 @@
 					</property>
 			</bean>
 			
+						<!-- 配置图片上传bean   id必须为multipartResolver -->
 			<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 					<!-- 图片大小不能超过1M  默认是B -->
 					<property name="maxUploadSize" value="1048576"/>

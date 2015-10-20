@@ -12,7 +12,6 @@ import cn.itcast.common.page.Pagination;
 
 @Controller
 public class BrandController{
-
 	@Autowired
 	private BrandService brandService;
 	
@@ -24,6 +23,8 @@ public class BrandController{
 						}
 						if(isDisplay!=null){
 							model.addAttribute("isDisplay", isDisplay);
+						}else{
+							model.addAttribute("isDisplay", 1);
 						}
 		
 //						List<Brand> brands = brandService.selectListByQuery(name, isDisplay);
@@ -45,5 +46,35 @@ public class BrandController{
 			return "redirect:/brand/list.do";
 		}
 		
+		@RequestMapping("/brand/deleteByIds")
+		public String deleteById(Integer[] ids,String name,Integer isDisplay,Integer pageNo,Model model){
+			
+			brandService.deleteByIds(ids);
+			if(null!=name){
+				model.addAttribute("name",name);
+			}
+			if(null!=isDisplay){
+				model.addAttribute("isDisplay", isDisplay);
+			}
+			if(null!=pageNo){
+				model.addAttribute("pageNo", pageNo);
+			}
+			return "redirect:/brand/list.do";
+		}
+		
+		@RequestMapping("/brand/toEdit.do")
+		public String toEdit(Integer id,Model model){
+			Brand brand =brandService.selectBrandById(id);
+			model.addAttribute("brand", brand);
+			return "/brand/edit";
+		}
+		
+		@RequestMapping("/brand/edit.do")
+		public String edit(Brand brand){
+			
+			brandService.updateBrand(brand);
+			
+			return "redirect:/brand/list.do";
+		}
 		
 }

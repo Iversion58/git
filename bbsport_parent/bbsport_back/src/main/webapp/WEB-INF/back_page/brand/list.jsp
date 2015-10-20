@@ -5,6 +5,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>babasport-list</title>
+<script type="text/javascript">
+
+function checkBox(name,checked){
+	$("input[name='ids']").attr("checked",checked);
+}
+
+
+function optDelete(name,isDisplay,pageNo){
+		var size=$("input[name='ids']:checked").size();
+		if(size<1){
+			alert("请至少选择一行进行操作！")
+			return;
+		}
+	
+	if(!confirm("操作不可逆，您确认要删除吗？")){
+		return;
+	}
+	$('#jvForm').attr("action","/brand/deleteByIds?name="+name+"&isDisplay="+isDisplay+"&pageNo="+pageNo);
+	$('#jvForm').attr("mehtod","post");
+	$('#jvForm').submit();
+	
+	
+}
+
+</script>
+
 </head>
 <body>
 <div class="box-positon">
@@ -23,6 +49,7 @@
 	</select>
 	<input type="submit" class="query" value="查询"/>
 </form>
+<form id="jvForm">
 <table cellspacing="1" cellpadding="0" border="0" width="100%" class="pn-ltable">
 	<thead class="pn-lthead">
 		<tr>
@@ -43,18 +70,17 @@
 			<td align="center">${brand.id }</td>
 			<td align="center">${brand.name }</td>
 			<td align="center"><img width="40" height="40" src="${brand.allUrl }"/></td>
-			<td align="center"><textarea rows="3" cols="45"  readonly="readonly">${brand.description }</textarea></td>
+			<td align="center"><textarea rows="2" cols="45"  readonly="readonly">${brand.description }</textarea></td>
 			<td align="center">${brand.sort }</td>
 			<td align="center"><c:if test="${brand.isDisplay==0 }">否</c:if><c:if test="${brand.isDisplay==1 }">是</c:if></td>
 			<td align="center">
-			<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
+			<a class="pn-opt" href="/brand/toEdit.do?id=${brand.id }">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
 			</td>
 		</tr>
 	</c:forEach>
-		
-	
 	</tbody>
 </table>
+</form>
 <div class="page pb15">
 	<span class="r inb_a page_b">
 				<c:forEach items="${pagination.pageView }" var="page">
@@ -62,7 +88,7 @@
 				</c:forEach>
 	</span>
 </div>
-<div style="margin-top:15px;"><input class="del-button" type="button" value="删除" onclick="optDelete();"/></div>
+<div style="margin-top:15px;"><input class="del-button" type="button" value="删除" onclick="optDelete('${name }','${isDisplay }','${ pagination.pageNo}');"/></div>
 </div>
 </body>
 </html>

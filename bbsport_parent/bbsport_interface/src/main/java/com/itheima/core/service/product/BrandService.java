@@ -13,4 +13,10 @@ public interface BrandService {
 	public Pagination selectPaginationByQuery(Integer pageNo,String name,Integer isDisplay);
 	
 	public void insertBrand(Brand brand);
+
+	public void deleteByIds(Integer[] ids);
+
+	public Brand selectBrandById(Integer id);
+
+	public void updateBrand(Brand brand);
 }

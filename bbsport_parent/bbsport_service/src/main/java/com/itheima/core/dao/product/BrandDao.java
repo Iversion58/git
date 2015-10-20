@@ -15,5 +15,8 @@ public interface BrandDao {
 		
 		//保存
 		public void insertBrand(Brand brand);
+		public void deleteByIds(Integer[] ids);
+		public Brand selectBrandById(Integer id);
+		public void updateBrand(Brand brand);
 		
 }
