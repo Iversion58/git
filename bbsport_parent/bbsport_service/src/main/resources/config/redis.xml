@@ -19,25 +19,12 @@
    		http://www.springframework.org/schema/task/spring-task-4.0.xsd
 		http://code.alibabatech.com/schema/dubbo        
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-
-				<!-- dubbo配置 -->
-			<!-- 服务提供方 名称 计算机使用 -->
-		<dubbo:application name="bbsport-service"/>
-			<!-- 配置注册中心 -->
-<!-- 		<dubbo:registry protocol="zookeeper" address="x.x.x.x:2181" check="false"/> -->
 		
-		<dubbo:registry address="N/A"/>
+		<bean id="jedis" class="redis.clients.jedis.Jedis" >
+			<constructor-arg index="0" value="192.168.19.128" type="java.lang.String"/>
+			<constructor-arg index="1" value="6379"/>
+		</bean>
 		
-		<!-- dubbo的端口  默认是20880 -->
-		<dubbo:protocol name="dubbo" port="20880"/>
 		
-				<!-- 暴露的服务接口 -->
-<!-- 		<dubbo:service interface="com.itheima.core.service.TestTbService" ref="testTbService"/> -->
-		<dubbo:service interface="com.itheima.core.service.product.BrandService" ref="brandService"/>
-		<dubbo:service interface="com.itheima.core.service.product.UploadService" ref="uploadService"/>
-		<dubbo:service interface="com.itheima.core.service.product.ProductService" ref="productService"/>
-		<dubbo:service interface="com.itheima.core.service.product.TypeService" ref="typeService"/>
-		<dubbo:service interface="com.itheima.core.service.product.ColorService" ref="colorService"/>
-		<dubbo:service interface="com.itheima.core.service.product.SkuService" ref="skuService"/>
-</beans>
+		</beans>
 

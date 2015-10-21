@@ -3,6 +3,8 @@ package com.itheima.common.core.bean.product;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.itheima.common.core.web.Constants;
+
 public class Product implements Serializable {
     /**
      * ID或商品编号
@@ -103,8 +105,20 @@ public class Product implements Serializable {
      * 审核人ID
      */
     private String checkUserId;
+    
+    private Img img;
+    
+    
 
-    private static final long serialVersionUID = 1L;
+    public Img getImg() {
+		return img;
+	}
+
+	public void setImg(Img img) {
+		this.img = img;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

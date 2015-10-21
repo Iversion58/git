@@ -1,5 +1,7 @@
 package com.itheima.core.service.product;
 
+import com.itheima.common.core.bean.product.Product;
+
 import cn.itcast.common.page.Pagination;
 
 public interface ProductService {
@@ -14,5 +16,7 @@ public interface ProductService {
 	 */
 	
 	public Pagination selectPaginationByQuery(String name, Boolean isShow, Long brandId, Integer pageNo);
+
+	public void insertProduct(Product product);
 
 }

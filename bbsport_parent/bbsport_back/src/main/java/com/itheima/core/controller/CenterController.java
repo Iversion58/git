@@ -13,8 +13,6 @@ import com.itheima.core.service.TestTbService;
 @RequestMapping(value = "/control")
 public class CenterController {
 
-	@Autowired
-	private TestTbService testTbService;
 	
 	@RequestMapping(value="/index.do")
 	public String index(){

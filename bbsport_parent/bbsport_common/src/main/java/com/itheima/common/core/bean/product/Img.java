@@ -2,6 +2,8 @@ package com.itheima.common.core.bean.product;
 
 import java.io.Serializable;
 
+import com.itheima.common.core.web.Constants;
+
 public class Img implements Serializable {
     /**
      * ID
@@ -24,7 +26,10 @@ public class Img implements Serializable {
     private Boolean isDef;
 
     private static final long serialVersionUID = 1L;
-
+  //全路径
+public String getAllUrl(){
+    	return Constants.IMG_URL+url;
+    }
     public Long getId() {
         return id;
     }

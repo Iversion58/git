@@ -91,8 +91,18 @@ public class Sku implements Serializable {
      * 销量
      */
     private Long sales;
+    
+    private Color color;
+    
+	private static final long serialVersionUID = 1L;
+	
+	public Color getColor() {
+		return color;
+	}
 
-    private static final long serialVersionUID = 1L;
+	public void setColor(Color color) {
+		this.color = color;
+	}
 
     public Long getId() {
         return id;

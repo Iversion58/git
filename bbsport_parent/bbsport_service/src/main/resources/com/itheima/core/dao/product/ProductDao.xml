@@ -140,7 +140,10 @@
       #{checkTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, #{checkUserId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.itheima.common.core.bean.product.Product" >
+  <insert id="insertSelective" parameterType="com.itheima.common.core.bean.product.Product" useGeneratedKeys="true" keyProperty="id">
+<!-- 	<selectKey keyProperty="id" order="AFTER" resultType="Long">
+		select LAST_INSERT_ID()
+	</selectKey> -->
     insert into bbs_product
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
