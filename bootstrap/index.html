@@ -1,0 +1,347 @@
+<!doctype html>
+
+<head>
+<html lang="zh-CN">
+<meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>just do it</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+body{
+	padding-top:50px;
+	padding-bottom:70px;
+}
+.carousel{
+	height:420px;
+	backgroud-color:#000000;
+	margin-bottom:70px;
+}
+.carousel .item{
+	height:420px;
+	backgroud-color:#000000;
+}
+.carousel img{
+	width:100%;
+}
+.carousel-caption p{
+	margin-bottom:20px;
+	font-size:20px;
+	line-height:18px;
+	
+}
+#summary-container .col-md-4{
+	text-align:center;
+}
+hr.divider{
+	margin:40px 0;
+}
+.feature{
+	padding-top:30px 0;
+	align-content:flex-end;
+	text-align:center;
+}
+.feature img{
+	margin-top:20px;
+}
+.feature-heading{
+	font-size:50px;
+	color:#6CD1E1;
+	margin-top:120px;
+}
+.feature-heading .text-muted{
+	font-size:28px;
+	color:#CCCBCB;
+}
+.nav-tab{
+	padding-left:10px;
+}
+.pull-right{
+	margin-bottom:60px;
+}
+#footer_p{
+	text-align:center;
+}
+
+ /* 响应式布局 */
+
+        @media (max-width: 768px) {
+
+            .summary {
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+
+            .carousel {
+                height: 300px;
+                margin-bottom: 30px;
+            }
+
+            .carousel .item {
+                height: 300px;
+            }
+
+            .carousel img {
+                min-height: 300px;
+            }
+
+            .carousel-caption p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            .feature-heading {
+                font-size: 34px;
+            }
+
+            .feature-heading .text-muted {
+                font-size: 22px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .feature-heading {
+                margin-top: 120px;
+            }
+        }
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#demo-navbar"> 
+      <span class="sr-only">切换导航</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Just do it</a> </div>
+    <div class="collapse navbar-collapse" id="demo-navbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Expection</a></li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dream<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#tab-chrome">Action</a></li>
+            <li><a href="#tab-firefox">Confidence</a></li>
+            <li><a href="#tab-safari">Mature</a></li>
+            <li><a href="#tab-opera">Follow</a></li>
+            <li><a href="#tab-ie">Thanks</a></li>
+          </ul>
+        </li>
+        <li><a href="#" data-toggle="modal" data-target="#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3500">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="images/1.jpg" alt="chrome">
+      <div class="carousel-caption">
+    <p></p>
+      </div>
+    </div>
+    
+        <div class="item">
+       <img src="images/4.jpg" alt="firefox">
+      <div class="carousel-caption">
+        <p></p>
+      </div>
+    </div>
+    
+       <div class="item">
+      <img src="images/2.jpg" alt="opera">
+      <div class="carousel-caption">
+      <p></p>
+      </div>
+    </div>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">上一页</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">下一页</span>
+  </a>
+</div>
+  </div>
+
+	<div class="container" id="summary-container">
+ <div class="row">
+          <div class="col-md-4">
+            <img class="img-circle" src="images/logo.jpg" alt="chrome">
+            
+            <h2>Freedom</h2>
+            
+            <p>Freedom is what we are not forced to do, we do not want to do.</p>
+            <p><a class="btn btn-default" href="javascript:void(0)" role="button">Go into</a></p>
+        </div>
+        <div class="col-md-4">
+            <img class="img-circle" src="images/logo2.jpg" alt="firefox">
+
+            <h2>Soar</h2>
+
+            <p>A eyas's dream is soaring in the sky,
+while for the little duck,is to be the beautiful swan.</p>
+
+            <p><a class="btn btn-default" href="javascript:void(0)" role="button">Go into</a></p>
+        </div>
+        <div class="col-md-4">
+            <img class="img-circle" src="images/logo5.jpg" alt="safari">
+
+            <h2>Innovation</h2>
+
+            <p>dear to think,dear to do,it is the youth.</p>
+        <p><a class="btn btn-default" href="#" role="button">Go into</a></p>
+        </div>
+</div>
+<hr class="divider">
+</div>
+
+<!--标签页-->
+<div class="nav-tab">
+<ul class="nav nav-tabs" role="tablist" id="tab-list"> 
+	<li class="active"> <a href="#tab-chrome" role="tab" data-toggle="tab">Action</a></li>
+     <li><a href="#tab-firefox" role="tab" data-toggle="tab">Confidence</a></li>
+     <li><a href="#tab-safari" role="tab" data-toggle="tab">Mature</a></li>
+    <li><a href="#tab-opera" role="tab" data-toggle="tab">Follow</a></li>
+    <li><a href="#tab-ie" role="tab" data-toggle="tab">Thanks</a></li>
+</ul>
+
+
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="tab-chrome">
+            <div class="row feature">
+                 <div class="col-md-5">
+                <img class="feature-image img-rounded center-block img-responsive" src="images/logo6.jpg" alt="Action">
+                </div>
+                <div class="col-md-7">
+                <h2 class="feature-heading">Action<span
+                            class="text-muted"> Heartbeat is not as good as action.</span></h2><p class="lead">If you want to move on, you're going to leave the place where you are now.</p>
+                </div>
+            
+            </div>
+        </div>
+ <div class="tab-pane fade in" id="tab-firefox">
+            <div class="row feature">
+                <div class="col-md-7">
+                    <h2 class="feature-heading">Confidence<span class="text-muted"> Don't give up the fight</span>
+                    </h2>
+                    <p class="lead">When you put your faith in yourself, you will always be full of strength.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image center-block img-rounded img-responsive" src="images/logo9.jpg" alt="Confidence">
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-safari">
+            <div class="row feature">
+            <div class="col-md-5">
+                    <img class="feature-image center-block img-rounded img-responsive" src="images/logo8.jpg" alt="Mature">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="feature-heading">Mature<span class="text-muted"> Each kind of trauma, is a mature</span></h2>
+                    <p class="lead">The greatest disaster in life is not in the past, but in the future.</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-opera">
+            <div class="row feature">
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">Follow<span class="text-muted"> Nothing seek, nothing find.</span>
+                    </h2>
+                    <p class="lead">The dandelion can fly, because it knows to follow the wind</p>
+                </div>
+                <div class="col-md-5">
+                <img class="feature-image center-block img-rounded img-responsive" src="images/logo10.jpg" alt="Follow">
+                </div>       
+            </div>
+        </div>
+        <div class="tab-pane" id="tab-ie">
+            <div class="row feature">
+            <div class="col-md-5">
+                    <img class="feature-image center-block img-rounded img-responsive" src="images/logo11.jpg" alt="Thaks">
+                </div>
+               
+                <div class="col-md-7">
+                <h2 class="feature-heading">Thanks<span class="text-muted"> Thank you for everything</span></h2>
+                <p class="lead">Grateful to those who despise me, because he reminded me of self-esteem.</p>
+                </div>
+                </div> 
+            
+        </div>
+    </div>
+
+<hr class="divider">
+</div>
+<!--关于 -->
+<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="modal-label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">close</span></button>
+                    <h4 class="modal-title" id="modal-label">About dreams</h4>
+                </div>
+                <div class="modal-body">
+                    <p>To have dream is fine and what if the dream is materialized?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<footer>	<br>
+<br>
+	<nav class="navbar navbar-fixed-bottom" role="navigation">
+    <p class="pull-right"><a class=" btn btn-default" href="#top">回到顶部</a></p>
+    </nav>
+	
+    <p id="footer_p">&copy; 2015 Iverson 版权所有 | <a href="javascript:void(0)">使用必读</a> | <a href="mailto:iverson_58@outlook.com">帮助</a></p>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/unslider.js"></script>
+
+<script>
+$('.carousel-inner').unslider({
+    fluid: true              //  支持响应式设计
+});
+$(document).ready(function() {
+    $("#demo-navbar .dropdown-menu a").click(function(){
+		var href=$(this).attr("href");
+		$("#tab-list a[href='"+href+"']").tab("show");
+		});
+});
+
+</script>
+</body>
+</html>
