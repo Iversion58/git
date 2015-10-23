@@ -70,9 +70,15 @@ public class ProductController {
 		
 		productService.insertProduct(product);
 		
-		
 		return "redirect:/product/list.do";
 	}
 	
+	@RequestMapping("/product/updateIsShow.do")
+	public String updateIsShow(Long[] ids){
+		
+		productService.updateIsShow(ids);
+		
+		return "redirect:/product/list.do";
+	}
 	
 }

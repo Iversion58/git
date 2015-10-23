@@ -108,9 +108,18 @@ public class Product implements Serializable {
     
     private Img img;
     
+    private Sku sku;
     
 
-    public Img getImg() {
+    public Sku getSku() {
+		return sku;
+	}
+
+	public void setSku(Sku sku) {
+		this.sku = sku;
+	}
+
+	public Img getImg() {
 		return img;
 	}
 
@@ -119,6 +128,8 @@ public class Product implements Serializable {
 	}
 
 	private static final long serialVersionUID = 1L;
+
+	public static final Integer PAGESIZE = 8;
 
     public Long getId() {
         return id;

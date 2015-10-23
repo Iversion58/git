@@ -9,16 +9,16 @@
 function getTableForm() {
 	return document.getElementById('tableForm');
 }
-function optDelete() {
+function updateisShow() {
 	if(Pn.checkedCount('ids')<=0) {
 		alert("请至少选择一个!");
 		return;
 	}
-	if(!confirm("确定删除吗?")) {
+	if(!confirm("确定要上架吗?")) {
 		return;
 	}
 	var f = getTableForm();
-	f.action="o_delete.do";
+	f.action="updateIsShow.do";
 	f.submit();
 }
 function changePageNo(){
@@ -44,8 +44,8 @@ function changePageNo(){
 		</c:forEach>		
 	</select>
 	<select name="isShow">	
-		<option value="1" <c:if test="${isShow==1}">selected="selected"</c:if>>上架</option>
-		<option value="0" <c:if test="${isShow==0}">selected="selected"</c:if>>下架</option>
+		<option value="1" <c:if test="${isShow}">selected="selected"</c:if>>上架</option>
+		<option value="0" <c:if test="${!isShow}">selected="selected"</c:if>>下架</option>
 	</select>
 	<input type="submit" class="query" value="查询"/>
 </form>
@@ -92,7 +92,7 @@ function changePageNo(){
 			</c:forEach>
 	</span>
 </div>
-<div style="margin-top:15px;"><input class="del-button" type="button" value="删除" onclick="optDelete();"/><input class="add" type="button" value="上架" onclick="optDelete();"/><input class="del-button" type="button" value="下架" onclick="optDelete();"/></div>
+<div style="margin-top:15px;"><input class="del-button" type="button" value="删除" onclick="optDelete()"/><input class="add" type="button" value="上架" onclick="updateisShow();"/><input class="del-button" type="button" value="下架" onclick="optDelete();"/></div>
 </form>
 </div>
 </body>

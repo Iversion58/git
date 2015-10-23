@@ -19,4 +19,8 @@ public interface ProductService {
 
 	public void insertProduct(Product product);
 
+	public void updateIsShow(Long[] ids);
+
+	public Pagination selectPaginationbyQueryFromSolr(Integer pageNo, String keyword);
+
 }

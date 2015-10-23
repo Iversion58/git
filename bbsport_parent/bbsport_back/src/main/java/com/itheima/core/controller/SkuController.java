@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.annotation.JsonFormat.Value;
 import com.itheima.common.core.bean.product.Sku;
 import com.itheima.core.service.product.SkuService;
 
@@ -25,7 +26,7 @@ public class SkuController {
 	public String list(Long productId,Model model){
 		List<Sku> skus=skuService.selectListByQuery(productId);
 		model.addAttribute("skus", skus);
-	return "sku/list";	
+	return "sku/list";
 	}
 	
 	@RequestMapping("/sku/add.do")
