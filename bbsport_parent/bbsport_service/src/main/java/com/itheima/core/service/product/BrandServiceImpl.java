@@ -1,6 +1,8 @@
 package com.itheima.core.service.product;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import com.itheima.common.core.bean.product.BrandQuery;
 import com.itheima.core.dao.product.BrandDao;
 
 import cn.itcast.common.page.Pagination;
+import redis.clients.jedis.Jedis;
 
 @Service("brandService")
 @Transactional
@@ -19,6 +22,8 @@ public class BrandServiceImpl implements BrandService {
 	@Autowired
 	private BrandDao brandDao;
 
+	@Autowired
+	private Jedis jedis;
 	@Override
 	public List<Brand> selectListByQuery(String name, Integer isDisplay) {
 		BrandQuery brandQuery = new BrandQuery();
@@ -83,7 +88,21 @@ public class BrandServiceImpl implements BrandService {
 
 	@Override
 	public void updateBrand(Brand brand) {
-				brandDao.updateBrand(brand);
+			//保存品牌数据到redis中
+		//创建map
+		Map<String,String> map=new HashMap<String,String>();
+				//id
+		map.put("id", String.valueOf(brand.getId()));
+				//name
+		map.put("name", brand.getName());
+		
+		jedis.hmset("brand:"+brand.getId(), map);
+		
+		brandDao.updateBrand(brand);
+				
+				
+				
+				
 	}
 
 	

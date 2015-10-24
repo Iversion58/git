@@ -1,5 +1,8 @@
 package com.itheima.core.service.product;
 
+import java.util.List;
+
+import com.itheima.common.core.bean.product.Brand;
 import com.itheima.common.core.bean.product.Product;
 
 import cn.itcast.common.page.Pagination;
@@ -21,6 +24,10 @@ public interface ProductService {
 
 	public void updateIsShow(Long[] ids);
 
-	public Pagination selectPaginationbyQueryFromSolr(Integer pageNo, String keyword);
+	public Pagination selectPaginationbyQueryFromSolr(Integer pageNo, String keyword,Long brandId,String price);
+
+	public List<Brand> selectBrandListFormRedis();
+
+	public String selectBrandNameById(Long brandId);
 
 }
