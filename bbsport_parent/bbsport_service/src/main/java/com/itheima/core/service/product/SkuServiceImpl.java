@@ -40,7 +40,23 @@ public class SkuServiceImpl implements SkuService {
 		sku.setUpdateTime(new Date());
 			skuDao.updateByPrimaryKeySelective(sku);
 	}
+
+	@Override
+	public List<Sku> selectSkuListByProductIdWithSock(Long id) {
+		SkuQuery skuQuery = new SkuQuery();
+		skuQuery.createCriteria().andProductIdEqualTo(id).andStockGreaterThan(0);
+		List<Sku> skus=skuDao.selectByExample(skuQuery);
+		for (Sku sku : skus) {
+			sku.setColor(colorDao.selectByPrimaryKey(id));
+		}
+
+		return skus;
+	}
 	
+	public void updateSkuById(Sku sku){
+		
+		skuDao.updateByPrimaryKeySelective(sku);
+	}
 	
 	
 }

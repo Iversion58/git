@@ -263,17 +263,18 @@ public class ProductServiceImpl implements ProductService{
 		
 				//过滤条件
 			if(null !=brandId){
-				solrQuery.addFilterQuery("brandId");
+				solrQuery.addFilterQuery("brandId:"+brandId);
 				params.append("&brandId=").append(brandId);
 			}
 				//0-79 600
 			if(null!=price){
 				String[] p=price.split("-");
+			if(p.length ==2){
 				Float startP = new Float(p[0]);
 				Float endP= new Float(p[1]);
-			if(p.length ==2){
 					solrQuery.addFilterQuery("price:["+startP+" TO "+endP+"]");
 			}else{
+				Float startP = new Float(p[0]);
 				solrQuery.addFilterQuery("price:["+startP+" TO *]");
 			}
 			params.append("&price=").append(price);
@@ -285,6 +286,8 @@ public class ProductServiceImpl implements ProductService{
 			//1：开启高亮
 			solrQuery.setHighlight(true);
 				//2.设置高亮字段	
+			solrQuery.addHighlightField("name_ik");
+			//3.设置高亮简单的前缀 及后缀
 			solrQuery.setHighlightSimplePre("<span style='color:red'>");
 			solrQuery.setHighlightSimplePost("</span>");
 			
@@ -342,7 +345,7 @@ public class ProductServiceImpl implements ProductService{
 				//结果集
 		pagination.setList(products);
 				//页面展示
-		String url="/product/display/llist.shtml";
+		String url="/product/display/list.shtml";
 		pagination.pageView(url, params.toString());
 		
 			return pagination;
@@ -373,6 +376,21 @@ public class ProductServiceImpl implements ProductService{
 			//从redis中取品牌名称			通过品牌Id
 	public String selectBrandNameById(Long brandId){
 		return jedis.hget("brand:"+brandId,"name");
+	}
+
+
+
+
+	@Override
+	public Product selectProductById(Long id) {
+					//商品
+		Product product=productDao.selectByPrimaryKey(id);
+		ImgQuery imgQuery=new ImgQuery();
+		imgQuery.createCriteria().andProductIdEqualTo(product.getId()).andIsDefEqualTo(true);
+		List<Img> imgs=imgDao.selectByExample(imgQuery);
+		product.setImg(imgs.get(0));
+		
+		return product;
 	}
 	
 	

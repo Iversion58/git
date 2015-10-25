@@ -9,17 +9,28 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.itheima.common.core.bean.Testdb;
+import com.itheima.common.core.bean.product.Brand;
+import com.itheima.common.junt.SpringJunitTest;
 import com.itheima.core.service.TestTbService;
 import com.itheima.core.service.product.BrandService;
+import com.itheima.core.service.product.ProductService;
 
 import cn.itcast.common.page.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:application-context.xml"})
-public class BrandServiceTest {
+public class BrandServiceTest extends SpringJunitTest{
 
 	@Autowired
 	private BrandService brandService;
+	
+	@Autowired
+	private ProductService productService;
+
+	@Test
+	public void test1(){
+		
+		List<Brand> redis = productService.selectBrandListFormRedis();
+		System.out.println(redis);
+	}
 	
 	@Test
 	public void test(){

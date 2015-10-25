@@ -10,4 +10,6 @@ public interface SkuService {
 
 	public void upateSku(Sku sku);
 
+	public List<Sku> selectSkuListByProductIdWithSock(Long id);
+
 }

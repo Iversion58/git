@@ -42,6 +42,66 @@
 </style>
 </head>
 <script type="text/javascript">
+			$(function(){
+					//触发第一个颜色a 标签 onclick
+					$('#colors a:first').trigger("click");
+			})
+			//全局变量
+			//颜色ID
+			var colorId;
+			var skuId;
+			//点击颜色		id	=	颜色
+		function colorToRed(target,id){
+				colorId=id;
+					//所有尺码
+					$('#sizes a').attr("class","not-allow");
+					//所有颜色A标签
+					$('#colors a').attr("class","changToWhite");
+					
+					$(target).attr("class","changToRed");
+					var flag=0;
+							//商品ID 277 对应 有库存的 结果集
+			<c:forEach items="${skus}" var="sku">
+					if('${sku.colorId}' == id){
+							if(flag == 0){
+								$('#'+'${sku.size}').attr("class","changToRed");
+									flag=1;
+										//颜色变红，同时	尺码		也变红
+											//巴巴价
+									$('#bbprice').html('￥'+'${sku.price}');
+										skuId='${sku.id}';
+							}else{
+								$('#'+'${sku.size}').attr("class","changToWhite");								
+							}
+					}
+			</c:forEach>				
+			}	
+
+				//点击尺码
+function sizeToRed(target,id){
+		var cc=$(target).attr('class');
+		if(cc=="not-allow"){
+			return ;
+		}
+				//所有尺码
+		$('#sizes a').each(function(){
+			var c=$(this).attr("class");
+			if(c == 'changToRed'){
+				$(this).attr("class","changToWhite");
+			}
+		});	
+				
+			$(target).attr("class","changToRed");
+			
+			//商品			对应			有库存的结果集
+		<c:forEach items="${skus}" var="sku"> 
+			if(colorId =='${sku.colorId}'&&id =='${sku.size}'){
+						//巴巴价
+						$('#bbPrice').html('￥'+'${sku.price}');
+						skuId='${sku.id}';
+			}
+			</c:forEach>
+				}
 //加入购物车
 function addCart(){
 	alert("添加购物车成功!");
@@ -142,29 +202,29 @@ function buy(){
 <div class="w ofc mt">
 	<div class="l">
 		<div class="showPro">
-			<div class="big"><a id="showImg" class="cloud-zoom" href="/res/img/pic/ppp0.jpg" rel="adjustX:10,adjustY:-1"><img alt="" src="/res/img/pic/ppp0.jpg"></a></div>
+			<div class="big"><a id="showImg" class="cloud-zoom" href="${product.img.allUrl }" rel="adjustX:10,adjustY:-1"><img alt="" src="${product.img.allUrl }"></a></div>
 		</div>
 	</div>
 	<div class="r" style="width: 640px">
 		<ul class="uls form">
-			<li><h2>依琦莲2014瑜伽服套装新款 瑜珈健身服三件套 广场舞蹈服装 性价比最高的瑜伽服 三件套 送胸垫 支持货到付款</h2></li>
-			<li><label>巴  巴 价：</label><span class="word"><b class="f14 red mr">￥128.00</b>(市场价:<del>￥150.00</del>)</span></li>
+			<li><h2>${product.name}</h2></li>
+			<li><label>巴  巴 价：</label><span class="word"><b class="f14 red mr">￥${sku.price }</b>(市场价:<del>￥${sku.marketPrice }</del>)</span></li>
 			<li><label>商品评价：</label><span class="word"><span class="val_no val3d4" title="4分">4分</span><var class="blue">(已有888人评价)</var></span></li>
-			<li><label>运　　费：</label><span class="word">10元</span></li>
-			<li><label>库　　存：</label><span class="word" id="stockInventory">100</span><span class="word" >件</span></li>
+			<li><label>运　　费：</label><span class="word">${sku.deliveFee }元</span></li>
+			<li><label>库　　存：</label><span class="word" id="stockInventory">${sku.stock }</span><span class="word" >件</span></li>
 			<li><label>选择颜色：</label>
 				<div id="colors" class="pre spec">
-					<a onclick="colorToRed(this,9)" href="javascript:void(0)" title="西瓜红" class="changToRed"><img width="25" height="25" data-img="1" src="/res/img/pic/ppp00.jpg" alt="西瓜红 "><i>西瓜红</i></a>
-					<a onclick="colorToRed(this,11)" href="javascript:void(0)" title="墨绿" class="changToWhite"><img width="25" height="25" data-img="1" src="/res/img/pic/ppp00.jpg" alt="墨绿 "><i>墨绿</i></a>
-					<a onclick="colorToRed(this,18)" href="javascript:void(0)" title="浅粉" class="changToWhite"><img width="25" height="25" data-img="1" src="/res/img/pic/ppp00.jpg" alt="浅粉 "><i>浅粉</i></a>
-				</div>
+					<c:forEach items="colors" var="color">
+					<a onclick="colorToRed(this,${color.id})" href="javascript:void(0)" title="${color.name }" class="changToRed"><img width="25" height="25" data-img="1" src="${product.img.allUrl }" alt="${color.name} "><i>${color.name }</i></a>
+					</c:forEach>
+								</div>
 			</li>
 			<li id="sizes"><label>尺　　码：</label>
-						<a href="javascript:void(0)" class="not-allow"  id="S">S</a>
-						<a href="javascript:void(0)" class="not-allow"  id="M">M</a>
-						<a href="javascript:void(0)" class="not-allow"  id="L">L</a>
-						<a href="javascript:void(0)" class="not-allow"  id="XL">XL</a>
-						<a href="javascript:void(0)" class="not-allow"  id="XXL">XXL</a>
+<a href="javascript:void(0)" class="not-allow"  id="S"  onclick="sizeToRed(this,'S')">S</a>
+						<a href="javascript:void(0)" class="not-allow"  id="M" onclick="sizeToRed(this,'M')">M</a>
+						<a href="javascript:void(0)" class="not-allow"  id="L" onclick="sizeToRed(this,'L')">L</a>
+						<a href="javascript:void(0)" class="not-allow"  id="XL" onclick="sizeToRed(this,'XL')">XL</a>
+						<a href="javascript:void(0)" class="not-allow"  id="XXL" onclick="sizeToRed(this,'XXL')">XXL</a>
 			</li>
 			<li><label>我 要 买：</label>
 				<a id="sub" class="inb arr" style="border: 1px solid #919191;width: 10px;height: 10px;line-height: 10px;text-align: center;" title="减" href="javascript:void(0);" >-</a>
@@ -304,7 +364,7 @@ function buy(){
 			<a href="javascript:void(0);" title="包装清单" rel="#detailTab3">包装清单</a></em><cite></cite></h2>
 		<div class="box bg_white ofc">
 			<div id="detailTab1" class="detail">
-				<img src="/res/img/pic/p800b.jpg" /><img src="/res/img/pic/p800a.jpg" /><img src="/res/img/pic/p800c.jpg" /><img src="/res/img/pic/p800d.jpg" />
+						${product.description }
 			</div>
 			
 			<div id="detailTab2" style="display:none">
@@ -320,7 +380,8 @@ function buy(){
 			<div id="detailTab3" class="detail" style="display:none">
 
 	<pre class="f14">
-		上衣*1 裤子*1 抹胸*1 包装*1 
+			${product.packageList }
+
 	</pre>
 
 			</div>

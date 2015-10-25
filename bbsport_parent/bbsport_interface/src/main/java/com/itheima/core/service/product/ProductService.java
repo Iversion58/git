@@ -30,4 +30,6 @@ public interface ProductService {
 
 	public String selectBrandNameById(Long brandId);
 
+	public Product selectProductById(Long id);
+
 }
