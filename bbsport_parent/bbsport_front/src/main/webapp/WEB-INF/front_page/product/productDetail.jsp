@@ -42,66 +42,95 @@
 </style>
 </head>
 <script type="text/javascript">
+//全局变量
+//颜色ID
+var colorId;
+var skuId;
+var upperLimit=15;
 			$(function(){
 					//触发第一个颜色a 标签 onclick
 					$('#colors a:first').trigger("click");
-			})
-			//全局变量
-			//颜色ID
-			var colorId;
-			var skuId;
-			//点击颜色		id	=	颜色
-		function colorToRed(target,id){
-				colorId=id;
-					//所有尺码
-					$('#sizes a').attr("class","not-allow");
-					//所有颜色A标签
-					$('#colors a').attr("class","changToWhite");
 					
-					$(target).attr("class","changToRed");
-					var flag=0;
-							//商品ID 277 对应 有库存的 结果集
-			<c:forEach items="${skus}" var="sku">
-					if('${sku.colorId}' == id){
-							if(flag == 0){
-								$('#'+'${sku.size}').attr("class","changToRed");
-									flag=1;
-										//颜色变红，同时	尺码		也变红
-											//巴巴价
-									$('#bbprice').html('￥'+'${sku.price}');
-										skuId='${sku.id}';
-							}else{
-								$('#'+'${sku.size}').attr("class","changToWhite");								
-							}
-					}
-			</c:forEach>				
-			}	
-
-				//点击尺码
-function sizeToRed(target,id){
-		var cc=$(target).attr('class');
-		if(cc=="not-allow"){
-			return ;
-		}
-				//所有尺码
-		$('#sizes a').each(function(){
-			var c=$(this).attr("class");
-			if(c == 'changToRed'){
-				$(this).attr("class","changToWhite");
-			}
-		});	
-				
-			$(target).attr("class","changToRed");
+					$("#sub").click(function(){
+						//点击-时、执行的程序
+						//获取当前多少件
+						var num = $("#num").val();
+						//追加1件
+						num--;
+						//如果数量大于购买限制时
+						if(num == 0){
+							return;
+						}
+						//把追减后的数量设置给num
+						$("#num").val(num);
+					});
+					
+					$('#add').click(function(){
+						var num=$('#num').val();
+						if(num==upperLimit){
+							alert("该商品只能购买"+upperLimit+" 件")
+							return;
+						}
+					num++;
+					$('#num').val(num);
+						
+					})
+			})
 			
-			//商品			对应			有库存的结果集
-		<c:forEach items="${skus}" var="sku"> 
-			if(colorId =='${sku.colorId}'&&id =='${sku.size}'){
-						//巴巴价
-						$('#bbPrice').html('￥'+'${sku.price}');
-						skuId='${sku.id}';
-			}
-			</c:forEach>
-				}
+	//点击颜色		id	=	颜色
+					function colorToRed(target,id){
+							colorId=id;
+								//所有尺码
+								$('#sizes a').attr("class","not-allow");
+								//所有颜色A标签
+								$('#colors a').attr("class","changToWhite");
+								
+								$(target).attr("class","changToRed");
+								var flag=0;
+										//商品ID 277 对应 有库存的 结果集
+						<c:forEach items="${skus}" var="sku">
+								if('${sku.colorId}' == id){
+										if(flag == 0){
+											$('#'+'${sku.size}').attr("class","changToRed");
+												flag=1;
+													//颜色变红，同时	尺码		也变红
+														//巴巴价
+												$('#bbPrice').html('￥'+'${sku.price}');
+													$('#stockInventory').html('${sku.stock}')
+													skuId='${sku.id}';
+										}else{
+											$('#'+'${sku.size}').attr("class","changToWhite");								
+										}
+								}
+						</c:forEach>				
+						}	
+
+							//点击尺码
+			function sizeToRed(target,id){
+					var cc=$(target).attr('class');
+					if(cc=="not-allow"){
+						return ;
+					}
+							//所有尺码
+					$('#sizes a').each(function(){
+						var c=$(this).attr("class");
+						if(c == 'changToRed'){
+							$(this).attr("class","changToWhite");
+						}
+					});	
+							
+						$(target).attr("class","changToRed");
+						
+						//商品			对应			有库存的结果集
+					<c:forEach items="${skus }" var="sku"> 
+						if( colorId == '${sku.colorId}' && id == '${sku.size}'){
+									//巴巴价
+									$('#bbPrice').html('￥'+'${sku.price}');
+									$('#stockInventory').html('${sku.stock}')
+									skuId='${sku.id}';
+						}
+						</c:forEach>
+							}
 //加入购物车
 function addCart(){
 	alert("添加购物车成功!");
@@ -208,14 +237,17 @@ function buy(){
 	<div class="r" style="width: 640px">
 		<ul class="uls form">
 			<li><h2>${product.name}</h2></li>
-			<li><label>巴  巴 价：</label><span class="word"><b class="f14 red mr">￥${sku.price }</b>(市场价:<del>￥${sku.marketPrice }</del>)</span></li>
+			<li><label>巴  巴 价：</label><span class="word"><b id="bbPrice" class="f14 red mr">￥128</b>(市场价:<del>￥400</del>)</span></li>
 			<li><label>商品评价：</label><span class="word"><span class="val_no val3d4" title="4分">4分</span><var class="blue">(已有888人评价)</var></span></li>
-			<li><label>运　　费：</label><span class="word">${sku.deliveFee }元</span></li>
-			<li><label>库　　存：</label><span class="word" id="stockInventory">${sku.stock }</span><span class="word" >件</span></li>
+			<li><label>运　　费：</label><span class="word">10元</span></li>
+			<li><label>库　　存：</label><span class="word" id="stockInventory">100</span><span class="word" >件</span></li>
 			<li><label>选择颜色：</label>
 				<div id="colors" class="pre spec">
-					<c:forEach items="colors" var="color">
-					<a onclick="colorToRed(this,${color.id})" href="javascript:void(0)" title="${color.name }" class="changToRed"><img width="25" height="25" data-img="1" src="${product.img.allUrl }" alt="${color.name} "><i>${color.name }</i></a>
+					<c:forEach items="${colors }" var="color">
+					<a onclick="colorToRed(this,'${color.id}')" href="javascript:void(0)" title="${color.name }" class="changToWhite">
+					<img width="25" height="25" data-img="1" src="${product.img.allUrl }" alt="${color.name} "/>
+					<i>${color.name }</i>
+					</a>
 					</c:forEach>
 								</div>
 			</li>

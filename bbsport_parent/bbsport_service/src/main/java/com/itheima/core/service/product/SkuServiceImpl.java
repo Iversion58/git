@@ -47,7 +47,7 @@ public class SkuServiceImpl implements SkuService {
 		skuQuery.createCriteria().andProductIdEqualTo(id).andStockGreaterThan(0);
 		List<Sku> skus=skuDao.selectByExample(skuQuery);
 		for (Sku sku : skus) {
-			sku.setColor(colorDao.selectByPrimaryKey(id));
+			sku.setColor(colorDao.selectByPrimaryKey(sku.getColorId()));
 		}
 
 		return skus;

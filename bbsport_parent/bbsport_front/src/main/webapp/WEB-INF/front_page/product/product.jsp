@@ -75,7 +75,8 @@ function serachKeyword(){
 }
 //登陆
 function login(){
-	window.location.href = "../buyer/login.jsp";
+	//去单点登陆项目  login页面
+	window.location.href = "http://localhost:8082/shopping/login.aspx?returnUrl=" + encodeURIComponent(window.location.href);
 }
 </script>
 </head>
@@ -486,13 +487,12 @@ function login(){
 				<ul class="uls i_150x150 x4_150x150b">
 					<c:forEach items="${pagination.list }" var="product">
 						<li><a href="javascript:;"
-							onclick="/product/detail.shtml?id=${product.id}" title="瑜伽服"
-							target="_blank" class="pic"><img src="${product.img.allUrl }"
-								alt="瑜伽服" /></a>
+							onclick="window.open('/product/detail.shtml?id=${product.id}')" title="瑜伽服"
+							 class="pic"><img src="${product.img.allUrl }" alt="瑜伽服" /></a>
 							<dl>
 								<!-- dt 10个文字+... -->
 								<dt>
-									<a href="" title="依琦莲2014瑜伽服套装新款" target="_blank">${product.name }</a>
+									<a href="javascript:;" title="依琦莲2014瑜伽服套装新款" onclick="window.open('/product/detail.shtml?id=${product.id}')" >${product.name }</a>
 								</dt>
 								<!-- dt 25个文字+... -->
 								<dd class="h40">${product.name }</dd>

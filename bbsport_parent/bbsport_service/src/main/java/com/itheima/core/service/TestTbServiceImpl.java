@@ -2,9 +2,12 @@ package com.itheima.core.service;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.ServletContextAware;
 
 import com.itheima.common.core.bean.Testdb;
 import com.itheima.core.dao.TestTbDao;
@@ -26,4 +29,5 @@ public class TestTbServiceImpl implements TestTbService {
 		return testTbDao.selectTestDbList();
 	}
 
+	
 }
