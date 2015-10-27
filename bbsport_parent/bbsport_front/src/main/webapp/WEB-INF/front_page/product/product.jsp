@@ -76,7 +76,7 @@ function serachKeyword(){
 //登陆
 function login(){
 	//去单点登陆项目  login页面
-	window.location.href = "http://localhost:8082/shopping/login.aspx?returnUrl=" + encodeURIComponent(window.location.href);
+	window.location.href = "http://localhost:8803/shopping/login.aspx?returnUrl=" + encodeURIComponent(window.location.href);
 }
 </script>
 </head>

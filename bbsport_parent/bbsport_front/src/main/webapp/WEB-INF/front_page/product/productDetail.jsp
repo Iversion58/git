@@ -46,7 +46,7 @@
 //颜色ID
 var colorId;
 var skuId;
-var upperLimit=15;
+var upperLimit;
 			$(function(){
 					//触发第一个颜色a 标签 onclick
 					$('#colors a:first').trigger("click");
@@ -98,6 +98,7 @@ var upperLimit=15;
 												$('#bbPrice').html('￥'+'${sku.price}');
 													$('#stockInventory').html('${sku.stock}')
 													skuId='${sku.id}';
+													upperLimit='${sku.upperLimit}';						
 										}else{
 											$('#'+'${sku.size}').attr("class","changToWhite");								
 										}
@@ -128,6 +129,7 @@ var upperLimit=15;
 									$('#bbPrice').html('￥'+'${sku.price}');
 									$('#stockInventory').html('${sku.stock}')
 									skuId='${sku.id}';
+									upperLimit='${sku.upperLimit}';
 						}
 						</c:forEach>
 							}

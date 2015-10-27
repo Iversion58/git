@@ -1,7 +1,10 @@
 package com.itheima.core.service.product;
 
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.itheima.common.core.bean.product.Brand;
+import com.itheima.common.core.bean.product.Color;
 import com.itheima.common.core.bean.product.Img;
 import com.itheima.common.core.bean.product.ImgQuery;
 import com.itheima.common.core.bean.product.Product;
@@ -29,6 +33,7 @@ import com.itheima.common.core.bean.product.SkuQuery;
 import com.itheima.core.dao.product.ImgDao;
 import com.itheima.core.dao.product.ProductDao;
 import com.itheima.core.dao.product.SkuDao;
+import com.itheima.core.service.staticpage.StaticPageService;
 
 import cn.itcast.common.page.Pagination;
 import redis.clients.jedis.Jedis;
@@ -51,6 +56,11 @@ public class ProductServiceImpl implements ProductService{
 		
 		@Autowired
 		private SolrServer solrServer;
+	
+		@Autowired
+		private StaticPageService staticPageService;
+		@Autowired
+		private SkuService skuService;
 		/**
 		 * 查询
 		 */
@@ -232,12 +242,31 @@ public class ProductServiceImpl implements ProductService{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+					//数据
+			Map<String, Object> root =new HashMap<String, Object>();
+		
+				//商品		对象			图片
+			Product pp = selectProductById(id);
+			root.put("product", pp);
 			
+				//库存		颜色
+			List<Sku> ss=skuService.selectSkuListByProductIdWithSock(id);
+			root.put("skus", ss);
+			
+			Set<Color> colors = new HashSet<Color>();
+			
+			for (Sku sku : skus) {
+				colors.add(sku.getColor());
+			}
+			root.put("colors", colors);
+		
+					//TODO			3.静态化	
+			staticPageService.	index(root, id);
 		}
 			
 			
 		
-		//TODO			3.静态化
+	
 		
 	}
 

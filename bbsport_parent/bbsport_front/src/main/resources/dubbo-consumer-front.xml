@@ -39,6 +39,8 @@
 			url="dubbo://127.0.0.1:20880"/>		
 		<dubbo:reference interface="com.itheima.core.service.product.SkuService" id="skuService" 
 			url="dubbo://127.0.0.1:20880"/>		
+		<dubbo:reference interface="com.itheima.core.service.staticpage.StaticPageServiceImpl" id="staticPageService" 
+			url="dubbo://127.0.0.1:20880"/>		
 		<!-- 全局设置超时时间 -->  <!-- 不检查服务提供方   问题 ：开发阶段 启动顺序不报错  调用时 必须启动服务提供方 -->
 		<dubbo:consumer timeout="600000" check="false"/>
 		
