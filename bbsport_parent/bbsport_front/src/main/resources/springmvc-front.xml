@@ -37,9 +37,17 @@
 					<property name="suffix" value=".jsp"/>
 			</bean>
 			
-		
+					<!-- 拦截器	（自定义拦截器） 判断用户是否登录 -->
+				<!-- /product/display/sfsdfsf/list.shtml  /shopping/login.aspx /shopping/buyerCart.shtml /buyer/trueBuyer.shtml-->
+			<mvc:interceptors>
+				<mvc:interceptor>
+											<!-- 包括的路径 -->
+						<mvc:exclude-mapping path="/*/**"/>
+											<!-- 配置拦截器的类 -->
+						<bean class="com.itheima.core.web.interceptor.SpringmvcInterceptor"/>
+				</mvc:interceptor>
 			
-
+			</mvc:interceptors>
 			
 			<!-- 引入服务消费方配置文件 -->
 			

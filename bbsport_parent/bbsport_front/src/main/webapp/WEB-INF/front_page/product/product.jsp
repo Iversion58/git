@@ -89,14 +89,18 @@ function login(){
 			</p>
 			<ul class="r uls">
 				<li class="dev">您好,欢迎来到新巴巴运动网！</li>
+				<c:if test="${!isLogin }">
 				<li class="dev"><a href="javascript:void(0)" onclick="login()"
 					title="登陆">[登陆]</a></li>
 				<li class="dev"><a href="javascript:void(0)"
 					onclick="register()" title="免费注册">[免费注册]</a></li>
+				</c:if>
+				<c:if test="${isLogin }">
 				<li class="dev"><a href="javascript:void(0)" onclick="logout()"
 					title="退出">[退出]</a></li>
 				<li class="dev"><a href="javascript:void(0)"
 					onclick="myOrder()" title="我的订单">我的订单</a></li>
+				</c:if>
 				<li class="dev"><a href="#" title="在线客服">在线客服</a></li>
 				<li class="dev after"><a href="#" title="English">English</a></li>
 			</ul>
@@ -492,7 +496,7 @@ function login(){
 							<dl>
 								<!-- dt 10个文字+... -->
 								<dt>
-									<a href="javascript:;" title="依琦莲2014瑜伽服套装新款" onclick="window.open('/product/detail.shtml?id=${product.id}')" >${product.name }</a>
+									<a href="javascript:;" title="依琦莲2014瑜伽服套装新款" onclick="window.open('http://localhost:8803/html/product/${product.id}.html')" >${product.name }</a>
 								</dt>
 								<!-- dt 25个文字+... -->
 								<dd class="h40">${product.name }</dd>

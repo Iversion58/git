@@ -40,5 +40,7 @@
 		<dubbo:service interface="com.itheima.core.service.product.ColorService" ref="colorService"/>
 		<dubbo:service interface="com.itheima.core.service.product.SkuService" ref="skuService"/>
 		<dubbo:service interface="com.itheima.core.service.staticpage.StaticPageServiceImpl" ref="staticPageService"/>
+		<dubbo:service interface="com.itheima.core.service.user.SessionProviderImpl" ref="sessionProvider"/>
+		<dubbo:service interface="com.itheima.core.service.user.BuyerServiceImpl" ref="buyerService"/>
 </beans>
 
