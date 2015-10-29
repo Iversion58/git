@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Sku implements Serializable {
+
+	private static final long serialVersionUID = 1L;
     /**
      * ID
      */
@@ -94,7 +96,18 @@ public class Sku implements Serializable {
     
     private Color color;
     
-	private static final long serialVersionUID = 1L;
+    private Product product;
+    
+    
+    
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
 	
 	public Color getColor() {
 		return color;

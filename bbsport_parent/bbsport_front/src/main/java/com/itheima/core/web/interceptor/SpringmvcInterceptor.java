@@ -1,5 +1,7 @@
 package com.itheima.core.web.interceptor;
 
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,12 +26,30 @@ public class SpringmvcInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		String username = sessionProvider.getAttributeForUsername(RequestUtils.getCSESSIONID(request, response));
-		if(username != null){
-			request.setAttribute("isLogin", true);
-		} 
-		request.setAttribute("isLogin", false);
 		
+		String requestURI = request.getRequestURI();
+		if(requestURI.startsWith(requestURI)){
+
+			String username = sessionProvider.getAttributeForUsername(RequestUtils.getCSESSIONID(request, response));
+			if(null != username ){
+				request.setAttribute("isLogin", true);
+			} else{
+						//未登录
+					response.sendRedirect("http://localhost:8082/shopping/login.aspx?returnUrl=" +URLEncoder.encode(request.getRequestURI().toString(), "utf-8"));
+							//不放行
+				return false;
+			}
+			
+			
+		}else{
+			String username = sessionProvider.getAttributeForUsername(RequestUtils.getCSESSIONID(request, response));
+			if(null != username ){
+				request.setAttribute("isLogin", true);
+			} else{
+				request.setAttribute("isLogin", false);
+			}
+		}
+					//放行
 		return true;
 	}
 			//handler之后
