@@ -187,4 +187,13 @@ public class BuyerCartController {
 		return "product/productOrder";
 	}
 	
+				@RequestMapping(value = "/shopping/delProduct.shtml")
+		public String delProduct(Long skuId,HttpServletRequest request, HttpServletResponse response) throws Exception{
+					
+					return "redirect:/shopping/buyerCart.shtml";
+				}
+	
+	
+				
+	
 }
