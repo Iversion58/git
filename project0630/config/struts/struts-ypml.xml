@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 用户管理action定义 -->
+	<package name="ypml" namespace="/ypml/ypxx" extends="base">
+	
+		<action name="*" class="ypxxAction" method="{1}">
+			<result name="exportypxx">/WEB-INF/jsp/business/ypml/exportypxx.jsp</result>
+			
+			<result name="exportypxxsubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						<!-- 输入action中对象名称，datagridResultInfo的类型就是 processResult-->
+						processResult
+					</param>
+			</result>
+			<result name="importypxx">/WEB-INF/jsp/business/ypml/importypxx.jsp</result>
+			
+			<result name="importypxxsubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						<!-- 输入action中对象名称，datagridResultInfo的类型就是 processResult-->
+						processResult
+					</param>
+			</result>
+			<result name="rsyncypxx">/WEB-INF/jsp/business/ypml/rsyncypxx.jsp</result>
+			
+			<result name="rsyncypxxsubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						<!-- 输入action中对象名称，datagridResultInfo的类型就是 processResult-->
+						processResult
+					</param>
+			</result>
+			
+			
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置映射文件 -->
+		<mapping resource="cn/itcast/yycg/business/system/entity/SysUser.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/SysRole.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/SysPermission.hbm.xml"/>
+		
+		<mapping resource="cn/itcast/yycg/business/system/entity/SysArea.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Basicinfo.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Userjd.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Usergys.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Usergysarea.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Useryy.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Dictinfo.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/system/entity/Dicttype.hbm.xml"/>
+		
+		<mapping resource="cn/itcast/yycg/business/ypml/entity/Ypxx.hbm.xml"/>
+		
+		<mapping resource="cn/itcast/yycg/business/cgd/entity/Yycgd.hbm.xml"/>
+		<mapping resource="cn/itcast/yycg/business/cgd/entity/Yycgdmx.hbm.xml"/>
+		
+	</session-factory>
+	
+</hibernate-configuration>

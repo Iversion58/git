@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-21 10:27:03 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.cgd.entity.Yycgd" table="YYCGD" schema="YYCG0630">
+        <comment>医院采购单表</comment>
+        <id name="id" type="java.lang.Long">
+            <column name="ID" precision="22" scale="0" />
+            <!-- <generator class="assigned" /> -->
+            <generator class="cn.itcast.yycg.business.cgd.entity.generator.CgdBmSequence" >
+            	<!-- oracle的序列名称 -->
+           	    <param name="sequence" >YYCGDBM</param>
+           </generator>
+        </id>
+        <many-to-one name="dictinfoByzt" class="cn.itcast.yycg.business.system.entity.Dictinfo" fetch="join" insert="false" update="false">
+            <column name="ZT" length="32" ></column>
+        </many-to-one>
+         <property name="zt" type="string">
+           <column name="ZT" length="32" not-null="true"></column>
+        </property>
+        <many-to-one name="useryy" class="cn.itcast.yycg.business.system.entity.Useryy" fetch="join" insert="false" update="false">
+            <column name="USERYYID" length="64" ></column>
+        </many-to-one>
+         <property name="useryyid" type="string">
+           <column name="USERYYID" length="64" not-null="true"></column>
+        </property>
+        <many-to-one name="usergys" class="cn.itcast.yycg.business.system.entity.Usergys" fetch="join" insert="false" update="false">
+            <column name="USERGYSID" length="64" ></column>
+        </many-to-one>
+         <property name="usergysid" type="string">
+           <column name="USERGYSID" length="64" not-null="true"></column>
+        </property>
+        <property name="mc" type="string">
+            <column name="MC" length="128" not-null="true"></column>
+        </property>
+        <property name="lxr" type="string">
+            <column name="LXR" length="64"></column>
+        </property>
+        <property name="lxdh" type="string">
+            <column name="LXDH" length="64"></column>
+        </property>
+        <property name="cjr" type="string">
+            <column name="CJR" length="64"></column>
+        </property>
+        <property name="cjtime" type="java.util.Date">
+            <column name="CJTIME" length="7" not-null="true"></column>
+        </property>
+        <property name="tjtime" type="java.util.Date">
+            <column name="TJTIME" length="7"></column>
+        </property>
+        <property name="bz" type="string">
+            <column name="BZ" length="256"></column>
+        </property>
+        <property name="shyj" type="string">
+            <column name="SHYJ" length="256"></column>
+        </property>
+        <property name="shtime" type="java.util.Date">
+            <column name="SHTIME" length="7"></column>
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="64" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="64" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="64" />
+        </property>
+        <property name="vchar4" type="string">
+            <column name="VCHAR4" length="128" />
+        </property>
+        <property name="vchar5" type="string">
+            <column name="VCHAR5" length="128" />
+        </property>
+        <property name="xgtime" type="java.util.Date">
+            <column name="XGTIME" length="7"></column>
+        </property>
+        <property name="processinstanceid" type="string">
+            <column name="PROCESSINSTANCEID" length="64"></column>
+        </property>
+        <set name="yycgdmxes" table="YYCGDMX" inverse="false" lazy="true" fetch="select" cascade="save-update,delete">
+            <key>
+                <column name="YYCGDID" precision="22" scale="0" not-null="true"></column>
+            </key>
+            <one-to-many class="cn.itcast.yycg.business.cgd.entity.Yycgdmx" />
+        </set>
+    </class>
+</hibernate-mapping>

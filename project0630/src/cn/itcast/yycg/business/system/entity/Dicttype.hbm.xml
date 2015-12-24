@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-14 10:55:26 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.Dicttype" table="DICTTYPE" schema="YYCG0630">
+        <id name="typecode" type="string">
+            <column name="TYPECODE" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="typename" type="string">
+            <column name="TYPENAME" length="64" not-null="true"></column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="256"></column>
+        </property>
+        <property name="typesort" type="java.lang.Integer">
+            <column name="TYPESORT" precision="22" scale="0"></column>
+        </property>
+        <property name="codelength" type="string">
+            <column name="CODELENGTH" length="32"></column>
+        </property>
+    </class>
+</hibernate-mapping>

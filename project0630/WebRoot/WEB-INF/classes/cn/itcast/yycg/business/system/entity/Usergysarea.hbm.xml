@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-21 14:40:14 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.Usergysarea" table="USERGYSAREA" schema="YYCG0630">
+        <comment>供货商供货地区</comment>
+        <id name="areaid" type="string">
+            <column name="AREAID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="usergysid" type="string">
+            <column name="USERGYSID" length="64" not-null="true" />
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="64" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="64" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="64" />
+        </property>
+    </class>
+</hibernate-mapping>

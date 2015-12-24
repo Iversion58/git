@@ -1,0 +1,27 @@
+{
+   "menus" : [{"icon" : "icon-sys","menuid" : "1","menuname" : "系统管理","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "用戶管理","url" : "/yycg0630/sys/user/sysuserlist.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "角色授权","url" : "/yycg0630/sys/roleauth/rolelist.action"
+                 }]
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "药品目录","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导出","url" : "/yycg0630/ypml/ypxx/exportypxx.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导入","url" : "/yycg0630/ypml/ypxx/importypxx.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录同步","url" : "/yycg0630/ypml/ypxx/rsyncypxx.action"
+                 }]
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "采购单","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "创建采购单","url" : "/yycg0630/cgd/create.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "采购单维护","url" : "/yycg0630/cgd/list.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "采购单审核","url" : "/yycg0630/cgd/checklist.action"
+                 },
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "采购单受理","url" : "/yycg0630/cgd/disposelist.action"
+                 }]
+               }
+             ]
+}

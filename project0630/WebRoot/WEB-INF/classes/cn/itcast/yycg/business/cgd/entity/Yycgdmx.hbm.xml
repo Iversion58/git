@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-21 10:27:03 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.cgd.entity.Yycgdmx" table="YYCGDMX" schema="YYCG0630">
+        <comment>医院采购单明细表</comment>
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="ypxx" class="cn.itcast.yycg.business.ypml.entity.Ypxx" fetch="join" insert="false" update="false">
+            <column name="YPXXID" length="32" not-null="true"></column>
+        </many-to-one>
+         <property name="ypxxid" type="java.lang.String">
+            <column name="YPXXID" length="32" not-null="true"></column>
+        </property>
+        <many-to-one name="dictinfoByCgzt" class="cn.itcast.yycg.business.system.entity.Dictinfo" fetch="join" insert="false" update="false">
+            <column name="CGZT" length="32" not-null="true"></column>
+        </many-to-one>
+         <property name="cgzt" type="java.lang.String">
+            <column name="CGZT" length="32" not-null="true"></column>
+        </property>
+       <!--  <many-to-one name="yycgd" class="cn.itcast.yycg.business.cgd.entity.Yycgd" fetch="join" insert="false" update="false">
+            <column name="YYCGDID" precision="22" scale="0" not-null="true"></column>
+        </many-to-one> -->
+         <property name="yycgdid" type="java.lang.Long">
+             <column name="YYCGDID" precision="22" scale="0" not-null="true"></column>
+        </property>
+        <property name="zbjg" type="java.lang.Float">
+            <column name="ZBJG" precision="126" scale="0" not-null="true"></column>
+        </property>
+        <property name="jyjg" type="java.lang.Float">
+            <column name="JYJG" precision="126" scale="0" not-null="true"></column>
+        </property>
+        <property name="cgl" type="java.lang.Integer">
+            <column name="CGL" precision="22" scale="0" not-null="true"></column>
+        </property>
+        <property name="cgje" type="java.lang.Float">
+            <column name="CGJE" precision="126" scale="0" not-null="true"></column>
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="64" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="64" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="64" />
+        </property>
+        <property name="vchar4" type="string">
+            <column name="VCHAR4" length="128" />
+        </property>
+        <property name="vchar5" type="string">
+            <column name="VCHAR5" length="128" />
+        </property>
+    </class>
+</hibernate-mapping>

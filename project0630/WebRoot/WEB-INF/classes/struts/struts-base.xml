@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="base" namespace="/" extends="json-default">
+		<interceptors>
+			<!-- 将请求空字符串设置为null -->
+			<interceptor name="trimInterceptor" class="cn.itcast.yycg.base.web.interceptor.TrimInterceptor"></interceptor>
+			<interceptor name="exceptionInterceptor" class="cn.itcast.yycg.base.Exception.ExceptionInterceptor"></interceptor>
+			<!-- <interceptor name="loginInterceptor" class="cn.itcast.yycg.base.auth.fitler.LoginInterceptor"></interceptor>
+			<interceptor name="permissionInterceptor" class="cn.itcast.yycg.base.auth.fitler.PermissionInterceptor"></interceptor> -->
+			
+			<interceptor-stack name="defaultStackCustom">
+			    <interceptor-ref name="trimInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<!-- <interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="permissionInterceptor"></interceptor-ref> -->
+				<interceptor-ref name="exceptionInterceptor"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		<!-- 系统默认拦截器使用 自定义的defaultStackCustom-->
+		<default-interceptor-ref name="defaultStackCustom"></default-interceptor-ref>
+		<global-results>
+			<result name="error_json" type="json">
+				<param name="root">
+					<!--  指定值栈中对象中 -->
+					processResult
+				</param>
+			</result>
+			<result name="error_jsp">
+				/WEB-INF/jsp/base/error.jsp
+			</result>
+			<result name="loginpage">
+				/WEB-INF/jsp/base/login.jsp
+			</result>
+			<result name="refuse">
+				/WEB-INF/jsp/base/refuse.jsp
+			</result>
+			<result name="loginshow">
+				/WEB-INF/jsp/base/login.jsp
+			</result>
+			
+		</global-results>
+		<action name="first" class="cn.itcast.yycg.base.web.action.FirstAction" method="first">
+			<result name="first">/WEB-INF/jsp/base/first.jsp</result>
+		</action>
+		<action name="welcome" class="cn.itcast.yycg.base.web.action.FirstAction" method="welcome">
+			<result name="welcome">/WEB-INF/jsp/base/welcome.jsp</result>
+		</action>
+		<action name="menu" class="cn.itcast.yycg.base.web.action.FirstAction" method="menu">
+			<result name="menu" type="json">
+				<!--忽略对象的层次，设置为true输出json不包括父类的属性设置false包括父类的属性，默认为true  -->
+			    <param name="ignoreHierarchy">false</param>
+				<param name="root">menu</param>
+			</result>
+		</action>
+		<!-- <action name="login" class="cn.itcast.yycg.base.web.action.LoginAction" method="login">
+			<result name="login" type="json">
+				<param name="root">
+					processResult
+				</param>
+			</result>
+		</action> -->
+		<!-- shiro重定向登陆地址 -->
+		<action name="login" class="shrioLoginAction" method="login">
+		</action>
+		
+		<!-- <action name="logout" class="cn.itcast.yycg.base.web.action.LoginAction" method="logout">
+			重定向到首页
+			<result name="logout" type="redirectAction">
+				first
+			</result>
+		</action> -->
+		
+	</package>
+
+</struts>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 用户管理action定义 -->
+	<package name="user" namespace="/sys/user" extends="base">
+	<!-- 	<action name="queryuser" class="cn.itcast.yycg.business.system.web.action.UserAction" method="queryuser">
+			<result name="queryuser">/WEB-INF/jsp/business/sys/queryuser.jsp</result>
+		</action> -->
+		<!-- 规范后 
+		请求的 action是方法名
+		每个方法至少对应result
+		-->
+		<action name="*" class="userAction" method="{1}">
+			<!-- -测试方法 -->
+			<result name="queryuser">/WEB-INF/jsp/business/sys/queryuser.jsp</result>
+			<!-- 测试json输出 -->
+			<result name="outjson" type="json">
+				<!-- 在这里指定输出包装对象的名称，对象在值栈中存在 -->
+				<param name="root">
+					sysUserCustom
+				</param>
+			</result>
+			<!-- 用户列表的页面 -->
+			<result name="sysuserlist">/WEB-INF/jsp/business/sys/sysuserlist.jsp</result>
+			<result name="sysuserlist_result" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						<!-- 输入action中对象名称，datagridResultInfo的类型就是 processResult-->
+						processResult
+					</param>
+			</result>
+			<!-- 用户添加页面 -->
+			<result name="insert">/WEB-INF/jsp/business/sys/addsysuser.jsp</result>
+			<!-- 返回json -->
+			<result name="insertsubmit" type="json">
+				<!--忽略对象的层次，设置为true输出json不包括父类的属性设置false包括父类的属性，默认为true  -->
+			    <param name="ignoreHierarchy">false</param>
+				<param name="root">
+					processResult
+				</param>
+			</result>
+			<!-- 删除用户 -->
+			<result name="delete" type="json">
+				<param name="root">
+					processResult
+				</param>
+			</result>
+		</action>
+	</package>
+	<!-- 角色授权 -->
+	<package name="roleauth" namespace="/sys/roleauth" extends="base">
+
+		<action name="*" class="roleAuthAction" method="{1}">
+			<!-- -测试方法 -->
+			<result name="rolelist">/WEB-INF/jsp/business/sys/sysrolelist.jsp</result>
+			<result name="rolelist_result" type="json">
+				<!-- 指定要将list中的哪些属性转json，不要指定延迟加载的属性（一般就是set集合） -->
+			   <param name="includeProperties">
+					rows\[\d+\]\.id,rows\[\d+\]\.name,rows\[\d+\]\.groupid,rows\[\d+\]\.dictinfoByGroupid.*
+				</param>
+			   
+				<param name="root">
+					processResult
+				</param>
+			</result>
+			<!-- 角色授权的页面 -->
+			<result name="roleauthorize">/WEB-INF/jsp/business/sys/role_authorize.jsp</result>
+			<!-- 所有权限，转json -->
+			<result name="permissionallByJson" type="json">
+				<param name="root">sysPermissionsAllList</param>
+			</result>
+			<!-- 授权提交 -->
+			<result name="roleauthorizesubmit" type="json">
+				<param name="root">
+					processResult
+				</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

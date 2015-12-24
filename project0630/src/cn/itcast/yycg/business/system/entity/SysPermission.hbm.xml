@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-17 11:20:18 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.SysPermission" table="SYS_PERMISSION" schema="YYCG0630">
+        <comment>系统权限表</comment>
+        <id name="id" type="string">
+            <column name="ID" length="64" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="64" not-null="true"></column>
+        </property>
+        <property name="parentid" type="string">
+            <column name="PARENTID" length="32" not-null="true"></column>
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="256"></column>
+        </property>
+        <property name="icon" type="string">
+            <column name="ICON" length="128"></column>
+        </property>
+        <property name="showorder" type="string">
+            <column name="SHOWORDER" length="64"></column>
+        </property>
+        <property name="isused" type="string">
+            <column name="ISUSED" length="1" not-null="true"></column>
+        </property>
+        <property name="ismenu" type="string">
+            <column name="ISMENU" length="1"></column>
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="300" />
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="300" />
+        </property>
+        <property name="plevel" type="string">
+            <column name="PLEVEL" length="1"></column>
+        </property>
+        <!-- <set name="sysRoles" table="SYS_ROLE_PERMISSION" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="PERMISSIONID" length="32" not-null="true"></column>
+            </key>
+            <many-to-many entity-name="cn.itcast.yycg.business.system.entity.SysRole">
+                <column name="ROLEID" length="32" not-null="true"></column>
+            </many-to-many>
+        </set>
+        <set name="sysRoles_1" table="SYS_ROLE_MENU" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="PERMISSIONID" length="64" not-null="true" />
+            </key>
+            <many-to-many entity-name="cn.itcast.yycg.business.system.entity.SysRole">
+                <column name="ROLEID" length="64" not-null="true" />
+            </many-to-many>
+        </set> -->
+    </class>
+</hibernate-mapping>

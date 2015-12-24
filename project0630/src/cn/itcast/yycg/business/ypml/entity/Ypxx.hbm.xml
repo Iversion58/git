@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-20 14:50:26 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.ypml.entity.Ypxx" table="YPXX" schema="YYCG0630">
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="dictinfoByJyzt" class="cn.itcast.yycg.business.system.entity.Dictinfo" fetch="select" insert="false" update="false">
+            <column name="JYZT" length="32" not-null="true"></column>
+        </many-to-one>
+         <property name="jyzt" type="string">
+            <column name="JYZT" length="32" not-null="true"></column>
+        </property>
+        <many-to-one name="dictinfoByLb" class="cn.itcast.yycg.business.system.entity.Dictinfo" fetch="select" insert="false" update="false">
+            <column name="LB" length="32"></column>
+        </many-to-one>
+         <property name="lb" type="string">
+            <column name="LB" length="32"></column>
+        </property>
+        <property name="bm" type="string">
+            <column name="BM" length="32" unique="true"></column>
+        </property>
+        <property name="scqymc" type="string">
+            <column name="SCQYMC" length="128" not-null="true"></column>
+        </property>
+        <property name="spmc" type="string">
+            <column name="SPMC" length="64" not-null="true"></column>
+        </property>
+        <property name="zbjg" type="java.lang.Float">
+            <column name="ZBJG" precision="126" scale="0" not-null="true"></column>
+        </property>
+        <property name="zpdz" type="string">
+            <column name="ZPDZ" length="128"></column>
+        </property>
+        <property name="pzwh" type="string">
+            <column name="PZWH" length="64"></column>
+        </property>
+        <property name="pzwhyxq" type="java.util.Date">
+            <column name="PZWHYXQ" length="7"></column>
+        </property>
+        <property name="jky" type="string">
+            <column name="JKY" length="1"></column>
+        </property>
+        <property name="bzcz" type="string">
+            <column name="BZCZ" length="64"></column>
+        </property>
+        <property name="bzdw" type="string">
+            <column name="BZDW" length="64"></column>
+        </property>
+        <property name="lsjg" type="java.lang.Float">
+            <column name="LSJG" precision="126" scale="0"></column>
+        </property>
+        <property name="lsjgcc" type="string">
+            <column name="LSJGCC" length="64"></column>
+        </property>
+        <property name="zlcc" type="string">
+            <column name="ZLCC" length="32"></column>
+        </property>
+        <property name="zlccsm" type="string">
+            <column name="ZLCCSM" length="200"></column>
+        </property>
+        <property name="ypjybg" type="string">
+            <column name="YPJYBG" length="1"></column>
+        </property>
+        <property name="ypjybgbm" type="string">
+            <column name="YPJYBGBM" length="128"></column>
+        </property>
+        <property name="ypjybgyxq" type="java.util.Date">
+            <column name="YPJYBGYXQ" length="7"></column>
+        </property>
+        <property name="cpsm" type="string">
+            <column name="CPSM"></column>
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="128" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="128" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="128" />
+        </property>
+        <property name="dw" type="string">
+            <column name="DW" length="32"></column>
+        </property>
+        <property name="mc" type="string">
+            <column name="MC" length="128" not-null="true"></column>
+        </property>
+        <property name="jx" type="string">
+            <column name="JX" length="32" not-null="true"></column>
+        </property>
+        <property name="gg" type="string">
+            <column name="GG" length="128" not-null="true"></column>
+        </property>
+        <property name="zhxs" type="string">
+            <column name="ZHXS" length="16" not-null="true"></column>
+        </property>
+        <property name="pinyin" type="string">
+            <column name="PINYIN" length="768"></column>
+        </property>
+        <property name="issheng" type="string">
+            <column name="ISSHENG" length="1"></column>
+        </property>
+    </class>
+</hibernate-mapping>

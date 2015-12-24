@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-14 10:55:26 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.Useryy" table="USERYY" schema="YYCG0630">
+        <id name="id" type="string">
+            <column name="ID" length="64" />
+            <generator class="uuid" />
+        </id>
+        <property name="mc" type="string">
+            <column name="MC" length="128" not-null="true" unique="true"></column>
+        </property>
+        <property name="dz" type="string">
+            <column name="DZ" length="256"></column>
+        </property>
+        <property name="yzbm" type="string">
+            <column name="YZBM" length="32"></column>
+        </property>
+        <property name="dq" type="string">
+            <column name="DQ" length="128"></column>
+        </property>
+        <property name="jb" type="string">
+            <column name="JB" length="32"></column>
+        </property>
+        <property name="cws" type="string">
+            <column name="CWS" length="64"></column>
+        </property>
+        <property name="fyljg" type="string">
+            <column name="FYLJG" length="1"></column>
+        </property>
+        <property name="dh" type="string">
+            <column name="DH" length="64"></column>
+        </property>
+        <property name="yjkdh" type="string">
+            <column name="YJKDH" length="64"></column>
+        </property>
+        <property name="lb" type="string">
+            <column name="LB" length="64"></column>
+        </property>
+        <property name="ypsr" type="string">
+            <column name="YPSR" length="32"></column>
+        </property>
+        <property name="ywsr" type="string">
+            <column name="YWSR" length="32"></column>
+        </property>
+        <property name="cz" type="string">
+            <column name="CZ" length="64"></column>
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="128" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="128" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="128" />
+        </property>
+        <property name="vchar4" type="string">
+            <column name="VCHAR4" length="128" />
+        </property>
+        <property name="vchar5" type="string">
+            <column name="VCHAR5" length="128" />
+        </property>
+       <!--  <set name="sysUsers" table="SYS_USER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERYYID" length="64"></column>
+            </key>
+            <one-to-many class="cn.itcast.yycg.business.system.entity.SysUser" />
+        </set> -->
+    </class>
+</hibernate-mapping>

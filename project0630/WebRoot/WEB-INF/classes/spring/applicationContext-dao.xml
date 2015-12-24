@@ -1,0 +1,108 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+		
+		<bean id="sysAreaDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.SysArea"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="basicinfoDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Basicinfo"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<!-- SysUserDao -->
+		<bean id="sysUserDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.SysUser"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="sysRoleDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.SysRole"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="sysPermissionDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.SysPermission"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+
+		<bean id="userjdDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Userjd"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="useryyDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Useryy"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="usergysDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Usergys"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="usergysareaDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Usergysarea"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<bean id="dictinfoDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Dictinfo"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="dicttypeDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.system.entity.Dicttype"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<!-- 药品信息 -->
+		<bean id="ypxxDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.ypml.entity.Ypxx"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<!-- 采购单 -->
+		<bean id="yycgdDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.cgd.entity.Yycgd"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<bean id="yycgdmxDao" class="cn.itcast.yycg.base.dao.impl.BaseDaoImpl">
+			<!-- 通过构造方法注入entityClass -->
+			<constructor-arg index="0" type="java.lang.Class" value="cn.itcast.yycg.business.cgd.entity.Yycgdmx"/>
+			<!-- 注入sessionFactory -->
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+
+</beans>

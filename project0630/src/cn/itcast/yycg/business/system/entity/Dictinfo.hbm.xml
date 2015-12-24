@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-14 10:55:26 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.Dictinfo" table="DICTINFO" schema="YYCG0630">
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="dictcode" type="string">
+            <column name="DICTCODE" length="32"></column>
+        </property>
+        <property name="typecode" type="string">
+            <column name="TYPECODE" length="32" not-null="true"></column>
+        </property>
+        <property name="info" type="string">
+            <column name="INFO" length="64" not-null="true"></column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="256"></column>
+        </property>
+        <property name="updatetime" type="string">
+            <column name="UPDATETIME" length="16"></column>
+        </property>
+        <property name="dictsort" type="java.lang.Integer">
+            <column name="DICTSORT" precision="22" scale="0"></column>
+        </property>
+        <property name="isenable" type="string">
+            <column name="ISENABLE" length="1" not-null="true"></column>
+        </property>
+        <property name="valuetype" type="string">
+            <column name="VALUETYPE" length="1" />
+        </property>
+       <!--  <set name="sysUsersForGroupid" table="SYS_USER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GROUPID" length="32" not-null="true"></column>
+            </key>
+            <one-to-many class="cn.itcast.yycg.business.system.entity.SysUser" />
+        </set>
+        <set name="sysUsersForUserstate" table="SYS_USER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERSTATE" length="32" not-null="true"></column>
+            </key>
+            <one-to-many class="cn.itcast.yycg.business.system.entity.SysUser" />
+        </set> -->
+    </class>
+</hibernate-mapping>

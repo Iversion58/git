@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-13 11:11:11 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.Basicinfo" table="BASICINFO" schema="YYCG0630">
+        <comment>基础配置信息表</comment>
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="200" not-null="true" />
+        </property>
+        <property name="value" type="string">
+            <column name="VALUE" length="512" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="20" not-null="true" />
+        </property>
+        <property name="tag" type="string">
+            <column name="TAG" length="30" />
+        </property>
+        <property name="isalive" type="string">
+            <column name="ISALIVE" length="1" not-null="true" />
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="32" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="60" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

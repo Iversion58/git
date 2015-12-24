@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 用户管理action定义 -->
+	<package name="cgd" namespace="/cgd" extends="base">
+	
+		<action name="*" class="cgdAction" method="{1}">
+			<result name="create">/WEB-INF/jsp/business/cgd/create.jsp</result>
+			
+			<result name="createsubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						processResult
+					</param>
+			</result>
+			
+			<result name="edit">/WEB-INF/jsp/business/cgd/edit.jsp</result>
+			<result name="yycgdmxlist_result" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						processResult
+					</param>
+				<!-- 	<param name="excludeProperties">
+						rows\[\d+\]\.yycgd
+					</param> -->
+			</result>
+			<result name="submit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						processResult
+					</param>
+			</result>
+			
+			
+			<result name="addyycgdmx">/WEB-INF/jsp/business/cgd/addyycgdmx.jsp</result>
+			<result name="addyycgdmx_ypxxlist" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						processResult
+					</param>
+			</result>
+			<result name="addyycgdmxsubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root">
+						processResult
+					</param>
+			</result>
+			<result name="list">/WEB-INF/jsp/business/cgd/list.jsp</result>
+			<result name="list_result" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root"> 
+						processResult
+					</param>
+					<!-- 避免将延迟加载的属性转json，配置要将哪些属性转json -->
+					<param name="includeProperties">
+						rows\[\d+\]\.id,rows\[\d+\]\.mc,rows\[\d+\]\.cjtime,rows\[\d+\]\.tjtime,rows\[\d+\]\.shtime,rows\[\d+\]\.dictinfoByzt.*
+					</param>
+			</result>
+			<result name="saveyycgdmxsubmit" type="json">
+					<param name="root"> 
+						processResult
+					</param>
+			</result>
+			
+			<result name="checklist">/WEB-INF/jsp/business/cgd/checklist.jsp</result>
+			<result name="checklist_result" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root"> 
+						processResult
+					</param>
+					<!-- 避免将延迟加载的属性转json，配置要将哪些属性转json -->
+					<param name="excludeProperties">
+						rows\[\d+\]\.yycgdmxes
+					</param>
+			</result>
+			<result name="check">/WEB-INF/jsp/business/cgd/check.jsp</result>
+			<result name="checksubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root"> 
+						processResult
+					</param>
+				
+			</result>
+			<result name="disposelist">/WEB-INF/jsp/business/cgd/disposelist.jsp</result>
+			<result name="disposelist_result" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root"> 
+						processResult
+					</param>
+				
+			</result>
+			<result name="dispose">/WEB-INF/jsp/business/cgd/dispose.jsp</result>
+			
+			<result name="savesendstate" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root"> 
+						processResult
+					</param>
+				
+			</result>
+			
+			<result name="disposesubmit" type="json">
+					<!-- 指定将哪个对象转成json -->
+					<param name="root"> 
+						processResult
+					</param>
+				
+			</result>
+			
+			
+			
+
+		</action>
+	</package>
+	
+</struts>

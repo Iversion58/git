@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-17 11:20:18 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.SysRole" table="SYS_ROLE" schema="YYCG0630">
+        <comment>系统角色表</comment>
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="64" not-null="true"></column>
+        </property>
+        <property name="groupid" type="string">
+            <column name="GROUPID" length="64" not-null="true"></column>
+        </property>
+        <!-- 用户组别关联dictinfo -->
+       <many-to-one name="dictinfoByGroupid" class="cn.itcast.yycg.business.system.entity.Dictinfo" fetch="join" insert="false" update="false">
+             <column name="GROUPID" length="64" not-null="true"></column>
+        </many-to-one>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="64"></column>
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="64"></column>
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="64"></column>
+        </property>
+        <!-- 角色和菜单关系，使用延迟加载 -->
+        <set name="sysRoleMenus" table="SYS_ROLE_MENU" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ROLEID" length="64" not-null="true" />
+            </key>
+            <many-to-many entity-name="cn.itcast.yycg.business.system.entity.SysPermission">
+                <column name="PERMISSIONID" length="64" not-null="true" />
+            </many-to-many>
+        </set>
+        <!-- <set name="sysUsers" table="SYS_USER_ROLE" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="SYSROLEID" length="64" not-null="true"></column>
+            </key>
+            <many-to-many entity-name="cn.itcast.yycg.business.system.entity.SysUser">
+                <column name="SYSUSERID" length="64" not-null="true"></column>
+            </many-to-many>
+        </set> -->
+        <!-- 角色和操作权限（请求url）关系，使用延迟加载 -->
+        <set name="sysRolePermissions" table="SYS_ROLE_PERMISSION" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="ROLEID" length="32" not-null="true"></column>
+            </key>
+            <many-to-many entity-name="cn.itcast.yycg.business.system.entity.SysPermission">
+                <column name="PERMISSIONID" length="32" not-null="true"></column>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

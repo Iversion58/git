@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 配置常量 -->
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- ui主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- chain方式拷贝到error及message到下一个执行链 -->
+	<constant name="struts.xwork.chaining.copyErrors" value="true" />
+	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
+	<constant name="struts.xwork.chaining.copyMessages" value="true" />
+	<!-- 所有以.action结尾才由struts的前端控制器拦截解析 -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 修改struts2文件上传的大小，默认2097152 -->
+	<constant name="struts.multipart.maxSize" value="20971520"></constant>
+	
+	<!-- 包含其它的struts配置文件 -->
+	<include file="/struts/struts-base.xml"></include>
+	<include file="/struts/struts-system.xml"></include>
+	<include file="/struts/struts-ypml.xml"></include>
+	<include file="/struts/struts-cgd.xml"></include>
+	
+
+</struts>

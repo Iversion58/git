@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-21 14:35:49 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cn.itcast.yycg.business.system.entity.SysArea" table="SYS_AREA" schema="YYCG0630">
+        <comment>区域表</comment>
+        <id name="id" type="string">
+            <column name="ID" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="areaname" type="string">
+            <column name="AREANAME" length="128" not-null="true" />
+        </property>
+        <property name="arealevel" type="java.lang.Integer">
+            <column name="AREALEVEL" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="areafullname" type="string">
+            <column name="AREAFULLNAME" length="200" />
+        </property>
+        <property name="parentid" type="string">
+            <column name="PARENTID" length="32" />
+        </property>
+        <property name="shortname" type="string">
+            <column name="SHORTNAME" length="32" />
+        </property>
+        <property name="isunit" type="string">
+            <column name="ISUNIT" length="1" />
+        </property>
+        <property name="lastupdate" type="string">
+            <column name="LASTUPDATE" length="14" />
+        </property>
+        <property name="yzcode" type="string">
+            <column name="YZCODE" length="32" />
+        </property>
+        <property name="vchar1" type="string">
+            <column name="VCHAR1" length="300" />
+        </property>
+        <property name="vchar2" type="string">
+            <column name="VCHAR2" length="300" />
+        </property>
+        <property name="vchar3" type="string">
+            <column name="VCHAR3" length="300" />
+        </property>
+        <property name="vchar4" type="string">
+            <column name="VCHAR4" length="300" />
+        </property>
+        <property name="vchar5" type="string">
+            <column name="VCHAR5" length="300" />
+        </property>
+        <property name="vchar6" type="string">
+            <column name="VCHAR6" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>
