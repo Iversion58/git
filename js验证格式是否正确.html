@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.error{
+	display:none;	
+}
+</style>
+<script src="jquery-1.7.min.js"></script>
+<script>
+function checkRelDoc(){
+			var s=$.trim($("#relDocTitle").val());
+			var s_arr = [];
+				RegUrl=/[^\[\a-\z\A-\Z0-9\u4E00-\u9FA5\;\]]$/;
+
+	if (RegUrl.test(s)) {
+		$("#rel_error").css("display","block");
+		return;
+	
+
+
+}else{
+	$("#rel_error").css("display","none");
+
+			s_arr=s.split(";");
+			var len=s_arr.length;
+			for(i=0;i<len;i++){
+				var a=s_arr[i];
+							if(a.indexOf("[")!=a.lastIndexOf("[")){
+			$("#rel_error").css("display","block");
+				}
+
+			if(a.indexOf("[")==0){
+			$("#rel_error").css("display","block");
+			return;	
+			} 
+			
+			
+			if(a.indexOf("[")>0&&a.indexOf("]")<0){
+				$("#rel_error").css("display","block");
+				return;	
+			}
+				
+			 if(a.indexOf("[")>0&&a.indexOf("]")>0){
+
+				var str=a.slice((a.indexOf("[")+1),a.indexOf("]"));
+					RegUrl=/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]$/;
+
+				if (RegUrl.test(str)) {
+				$("#rel_error").css("display","block");
+				return;
+				}else{
+				$("#rel_error").css("display","none");	
+				}
+
+  if((a.indexOf("[")+1)==a.indexOf("]")){
+				$("#rel_error").css("display","block");
+				return;		
+				}else if(a.length-1>a.indexOf("]")){
+	
+		var s_len=a.indexOf("]")+1;
+	
+		if(a.indexOf(";")<0||s_len<a.indexOf(";")){
+			
+		$("#rel_error").css("display","block");
+		return;	
+
+	}else{
+		
+	$("#rel_error").css("display","none");	
+	}
+	}
+	
+
+
+			 }
+				
+				
+			}
+}
+	
+}
+</script>
+</head>
+
+<body>
+
+<br>
+<div style="padding-left:300px;padding-top:100px;">
+<input id="relDocTitle" type="text" onkeyup="checkRelDoc()">
+</div>
+<div id="rel_error" class="error">格式不对,格式为百科[互动百科];互动百科</div>
+</body>
+</html>
